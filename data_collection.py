@@ -16,11 +16,9 @@ with open('moisture_data.csv', 'w', newline='') as file:
             
             moisture_value = GPIO.input(sensor_pin)
             timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-
           
             writer.writerow([timestamp, moisture_value])
             print(f"Time: {timestamp}, Moisture: {moisture_value}")
-
            
             time.sleep(1800) 
 
