@@ -10,7 +10,6 @@ from logger import logger
 from config import EmailConfig
 
 class EmailNotifier:
-
     
     def __init__(self):
         self.last_alert_times = {}
@@ -32,7 +31,7 @@ class EmailNotifier:
         logger.logger.info("Email scheduler started")
     
     def _run_scheduler(self):
-        """Run the schedule in background"""
+      
         while True:
             schedule.run_pending()
             time.sleep(60)  # Check every minute
