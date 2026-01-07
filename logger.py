@@ -39,7 +39,6 @@ class PlantMonitorLogger:
         file_handler.setFormatter(formatter)
         self.logger.addHandler(file_handler)
         
-        # Console handler
         if LogConfig.CONSOLE_OUTPUT:
             console_handler = logging.StreamHandler()
             console_handler.setFormatter(formatter)
@@ -48,16 +47,16 @@ class PlantMonitorLogger:
         self.logger.info("Plant Monitor Logger initialized successfully")
     
     def log_sensor_reading(self, sensor_type, value, status="OK"):
-        """Log sensor readings with status"""
+ 
         self.logger.info(f"SENSOR_READING - {sensor_type}: {value} - Status: {status}")
     
     def log_alert(self, alert_type, message, level="WARNING"):
-        """Log system alerts"""
+      
         log_method = getattr(self.logger, level.lower())
         log_method(f"ALERT - {alert_type}: {message}")
     
     def log_prediction(self, prediction_value, confidence):
-        """Log prediction results"""
+      
         self.logger.info(f"PREDICTION - Value: {prediction_value:.2f}, Confidence: {confidence:.2f}")
     
     def log_system_status(self, cpu_temp, memory_usage, disk_usage):
